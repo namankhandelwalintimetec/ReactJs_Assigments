@@ -1,0 +1,232 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+body {
+  background-color: #c4bcbc;
+}
+
+.border {
+  border-radius: 30px;
+}
+
+.chan {
+  text-align: justify right;
+  margin: 50px;
+  display: grid;
+  gap: 5%;
+  grid-template-columns: repeat(auto-fill, 250px);
+  height: auto;
+  list-style: none;
+  border-radius: 5px;
+  background: #c4bcbc;
+}
+
+h1 {
+  color: white;
+  background: transparent;
+  background-color: #8566aa;
+  padding: 6px 0 2px 0;
+  margin-bottom: 10px;
+  box-shadow: 5px 5px 15px -15px rgb(0, 0, 0, 0.3);
+}
+
+input {
+  text-align: center;
+  height: 30px;
+  top: 10px;
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: 500;
+  width: 60%;
+  border-bottom: 2px solid #8566aa;
+  outline: none;
+}
+
+button {
+  min-height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border-color: transparent;
+  display: inline-block;
+}
+
+.inle {
+  box-sizing: content-box;
+  margin-left: 10px;
+  display: inline-block;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: rgb(41, 182, 41);
+}
+
+.center {
+  margin: auto;
+  width: 40%;
+  border: 3px solid #73ad21;
+  padding: 10px;
+  background-color: azure;
+  text-align: center;
+  align-items: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.Delet {
+  display: inline-block;
+  background-color: rgb(255, 252, 252);
+  margin: 2%;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  border: 1px solid black;
+}
+
+li {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 5%;
+  font-weight: bold;
+  text-decoration: line-through;
+  width: fit-content;
+  width: 100px;
+  text-transform: capitalize;
+}
+
+.card {
+  height: 190PX;
+  padding: 3%;
+}
+
+
+.addscroll {
+  overflow-y: scroll;
+  height: 50%;
+  overflow-y: auto;
+  width: 90%;
+  font-size: larger;
+  font-weight: bold;
+  margin-top: 0px;
+}
+
+.set-date {
+  margin-bottom: 1%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.ADD {
+  height: 100%;
+  width: 100%;
+}
+
+.update {
+  display: inline-block;
+  background-color: rgb(255, 252, 252);
+  margin-top: 2%;
+  position: absolute;
+  bottom: 3px;
+  left: 30%;
+  border: 1px solid black;
+}
+
+.popup{
+  height: 300px;
+  width: 50%;
+  margin: auto;
+  box-shadow: 10px 10px 10px 10px #888888;
+  border-radius: 2%;
+  color: black;
+  background-color: white;
+}
+
+.head-pop{
+  text-align: start;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 6%;
+  margin-bottom: 6%;
+}
+
+.input-pop{
+  display: block;
+  margin: auto;
+  border-radius: 20px;
+  border: 5px solid #282c34;
+  width: 70%;
+  height: 14%;
+}
+
+
+/* .update{
+  position: absolute;
+  bottom: 10%;
+  margin-left: 20%;
+  background-color: #73ad21;
+} */
+
+.update-list{
+  margin: auto;
+  width: 50%;
+  align-items: center;
+  text-align: center;
+  color: #E2D2F9;
+  background-color: #317874;
+  border-radius: 20px;
+}
+
+
+.check{
+    right:20%;
+    width: 8%;
+    height: 8%;
+    top: 100%;
+}
+
+.edit-image{
+  width: 18%;
+    height: 18%;
+}
+
+
+.main-card{
+  display: flex;
+  justify-content: center;
+}
