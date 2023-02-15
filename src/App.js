@@ -17,7 +17,7 @@ const App = () => {
     setUpdateNodeIndex(editNodeIndex);
   };
 
-  const inputData = (event) => {
+  const inputNoteValue = (event) => {
     setNote(event.target.value);
   };
 
@@ -77,7 +77,7 @@ const App = () => {
           <input
             placeholder="enter your text"
             value={note}
-            onChange={inputData}
+            onChange={inputNoteValue}
           />
           <button onClick={dispalyNote}>
             <img className="add-note" src={Edit} />
