@@ -9,12 +9,12 @@ const App = () => {
   const [allNotes, setallNotes] = useState([]);
   const [allCompletedNotes, setallCompletedNotes] = useState([]);
   const [checkUpdate, setCheckUpdate] = useState("false");
-  const [updateNodeIndex, setIndex] = useState();
+  const [updateNodeIndex, setUpdateNodeIndex] = useState();
 
   const edit = (editNodeIndex) => {
     setNote(allNotes[editNodeIndex]);
     setCheckUpdate("true");
-    setIndex(editNodeIndex);
+    setUpdateNodeIndex(editNodeIndex);
   };
 
   const inputData = (event) => {
