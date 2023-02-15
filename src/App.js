@@ -1,69 +1,69 @@
 import React, { useState } from "react";
-import "./Apptesting.css";
-import Todo from "./compo/Todo";
+import "./AppStyle.css";
+import Todo from "./Components/Todo";
 import Edit from "./edit.png";
-import ModifyList from "./compo/Modifylist";
+import CompletedNoteList from "./Components/CompleteNoteList";
 
-export default function App() {
+const App = () => {
   const [note, setNote] = useState("");
-  const [noteArray, setNoteArray] = useState([]);
-  const [updateArray, setUpdateArray] = useState([]);
-  const [modify, setModify] = useState("false");
-  const [index, setIndex] = useState();
+  const [allNotes, setallNotes] = useState([]);
+  const [allCompletedNotes, setallCompletedNotes] = useState([]);
+  const [checkUpdate, setCheckUpdate] = useState("false");
+  const [updateNodeIndex, setIndex] = useState();
 
-  function modfiy(index) {
-    setNote(noteArray[index]);
-    setModify("true");
-    setIndex(index);
-  }
+  const edit = (editNodeIndex) => {
+    setNote(allNotes[editNodeIndex]);
+    setCheckUpdate("true");
+    setIndex(editNodeIndex);
+  };
 
   const inputData = (event) => {
     setNote(event.target.value);
   };
 
-  const show = () => {
-    if (note === "" || note.trim()==="") {
+  const dispalyNote = () => {
+    if (note === "" || note.trim() === "") {
       alert("content Add");
-    } else if (modify !== "true") {
-      setNoteArray((oldNote) => {
+    } else if (checkUpdate !== "true") {
+      setallNotes((oldNote) => {
         return [...oldNote, note];
       });
-    } else if (modify === "true") {
-      setModify("false");
-      setNoteArray((oldNote) => {
-        return oldNote.map((item, id) => {
-          return id === index ? note : item;
+    } else if (checkUpdate === "true") {
+      setCheckUpdate("false");
+      setallNotes((oldNote) => {
+        return oldNote.map((item, itemIndex) => {
+          return itemIndex === updateNodeIndex ? note : item;
         });
       });
     }
     setNote("");
   };
 
-  const deleteNote= (id) => {
-    setNoteArray((oldNote) => {
+  const deleteNote = (nodeIndex) => {
+    setallNotes((oldNote) => {
       return oldNote.filter((element, index) => {
-        return index !== id;
+        return index !== nodeIndex;
       });
     });
     setNote("");
   };
 
-  const completeList = (id) => {
-    setUpdateArray((oldNote) => {
-      return [...oldNote,noteArray[id]];
+  const completeList = (nodeIndex) => {
+    setallCompletedNotes((oldNote) => {
+      return [...oldNote, allNotes[nodeIndex]];
     });
-    setNoteArray((oldNote) => {
+    setallNotes((oldNote) => {
       return oldNote.filter((element, index) => {
-        return index !== id;
+        return index !== nodeIndex;
       });
     });
     setNote("");
   };
 
-  const deletCompleteTask = (id) => {
-    setUpdateArray((oldNote) => {
+  const deletCompleteTask = (nodeIndex) => {
+    setallCompletedNotes((oldNote) => {
       return oldNote.filter((element, index) => {
-        return index !== id;
+        return index !== nodeIndex;
       });
     });
     setNote("");
@@ -79,21 +79,21 @@ export default function App() {
             value={note}
             onChange={inputData}
           />
-          <button onClick={show}>
-              <img className="ADD" src={Edit} />
+          <button onClick={dispalyNote}>
+            <img className="add-note" src={Edit} />
           </button>
         </diV>
       </div>
 
       <div className="note-card">
-        {noteArray.map((value, index) => {
+        {allNotes.map((value, index) => {
           return (
             <Todo
               text={value}
               key={index}
               id={index}
               onSelect={deleteNote}
-              modfiy={modfiy}
+              edit={edit}
               completeList={completeList}
             />
           );
@@ -103,16 +103,16 @@ export default function App() {
       <h1
         className="update-list"
         style={{
-          display: updateArray.length <= 0 ? "none" : "block",
+          display: allCompletedNotes.length <= 0 ? "none" : "block",
           color: "white",
         }}
       >
         Completed list
       </h1>
       <div className=" note-card">
-        {updateArray.map((value, index) => {
+        {allCompletedNotes.map((value, index) => {
           return (
-            <ModifyList
+            <CompletedNoteList
               text={value}
               key={index}
               id={index}
@@ -123,4 +123,6 @@ export default function App() {
       </div>
     </>
   );
-}
+};
+
+export default App;

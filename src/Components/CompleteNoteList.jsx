@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
-import "../Apptesting.css";
+import "./AppStyle.css";
 
-function ModifyList(props) {
+const CompletedNoteList =(props)=> {
   let monthName = [
     "Jan",
     "Feb",
@@ -26,7 +26,7 @@ function ModifyList(props) {
           {date.getDate()}/{monthName[date.getMonth()]}/{date.getFullYear()}
         </p>
         <div className="border-line"></div>
-        <p className="addscroll-modify">{props.text}</p>
+        <p className="add-scroll-modify">{props.text}</p>
       
         <button
           onClick={() => {
@@ -41,4 +41,4 @@ function ModifyList(props) {
   );
 }
 
-export default ModifyList;
+export default CompletedNoteList;

@@ -1,9 +1,9 @@
 import React from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
-import "../Apptesting.css";
+import "./AppStyle.css";
 
-export default function Todo(props) {
+const Todo=(props)=> {
   let monthName = [
     "Jan",
     "Feb",
@@ -27,7 +27,7 @@ export default function Todo(props) {
         </p>
         <div className="border-line"></div>
 
-        <p className="addscroll">{props.text}</p>
+        <p className="add-scroll">{props.text}</p>
 
         <div className="border-down"></div>
         <button
@@ -42,14 +42,14 @@ export default function Todo(props) {
         <button
           className="update"
           onClick={() => {
-            props.modfiy(props.id);
+            props.edit(props.id);
           }}
         >
           <EditIcon className="edit-change" />
         </button>
 
         <input
-          className="check"
+          className="check-box"
           type="checkbox"
           checked="un-checked"
           onChange={() => {
@@ -60,3 +60,5 @@ export default function Todo(props) {
     </>
   );
 }
+
+export default Todo;
