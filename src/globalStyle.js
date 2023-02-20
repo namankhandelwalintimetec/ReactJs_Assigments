@@ -1,4 +1,13 @@
-.App {
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+    background: teal;
+    font-family: Open-Sans, Helvetica, Sans-Serif;
+  }
+  .App {
 	text-align: center;
 }
 
@@ -151,6 +160,10 @@ li {
 	width: 70%;
 	height: 14%;
 }
+.time{
+	font-size:larger;
+	font-weight:bold;
+}
 
 .update-list {
 	margin: auto;
@@ -265,5 +278,6 @@ input::placeholder {
 
 	}
 }
+`;
 
-
+export default GlobalStyle;
