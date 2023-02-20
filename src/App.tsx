@@ -15,10 +15,10 @@ import {
   NoteContainer,
 } from "./StyleComponents/NoteDiv";
 
-const App=() =>{
+const App = () => {
   const date = new Date();
   const [note, setNote] = useState<string>("");
-  const [allNotes, setallNotes] = useState<allUpdateNote[]>([
+  const [allNotes, setAllNotes] = useState<allUpdateNote[]>([
     { id: 0, title: "", update: false },
   ]);
 
@@ -37,9 +37,6 @@ const App=() =>{
     setNote(allNotes[updateNoteIndex].title);
     setCheckUpdate(true);
     setUpdateIndex(updateNoteIndex);
-    if (NoteList.length <= 1) {
-      setNote("");
-    }
   };
 
   const inputData = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -52,11 +49,11 @@ const App=() =>{
     } else if (checkUpdate == true) {
       const updatedTodoListArray = [...allNotes];
       updatedTodoListArray[updateIndex].title = note;
-      setallNotes(updatedTodoListArray);
+      setAllNotes(updatedTodoListArray);
       setNote("");
       setCheckUpdate(false);
     } else {
-      setallNotes([
+      setAllNotes([
         ...allNotes,
         {
           id: allNotes.length,
@@ -69,7 +66,7 @@ const App=() =>{
   };
 
   const deleteNote = (id: number) => {
-    setallNotes((oldNote) => {
+    setAllNotes((oldNote) => {
       return oldNote.filter((element, index) => {
         return element.id !== id;
       });
@@ -77,10 +74,10 @@ const App=() =>{
     setNote("");
   };
 
-  const checkcomplete = (id: number) => {
+  const checkComplete = (id: number) => {
     const updatedTodoListArray = [...allNotes];
     updatedTodoListArray[id].update = true;
-    setallNotes(updatedTodoListArray);
+    setAllNotes(updatedTodoListArray);
     setNote("");
     if (NoteList.length <= 1) {
       setNote("");
@@ -138,7 +135,9 @@ const App=() =>{
         </h1>
       </div>
       <div style={{ display: completeList.length > 0 ? "flex" : "normal" }}>
-        <NoteContainer style={{ width: completeList.length <= 0 ? "100%" : "50%" }}>
+        <NoteContainer
+          style={{ width: completeList.length <= 0 ? "100%" : "50%" }}
+        >
           {allNotes.map((value, index) => {
             if (value.update == false && value.title !== "") {
               return (
@@ -165,7 +164,7 @@ const App=() =>{
                   <input
                     className="check"
                     type="checkbox"
-                    onChange={() => checkcomplete(index)}
+                    onChange={() => checkComplete(index)}
                   />
                 </CardDiv>
               );
@@ -173,7 +172,9 @@ const App=() =>{
           })}
         </NoteContainer>
 
-        <NoteContainer style={{ width: completeList.length <= 0 ? "1%" : "50%" }}>
+        <NoteContainer
+          style={{ width: completeList.length <= 0 ? "1%" : "50%" }}
+        >
           {completeList.map((value, index) => {
             return (
               <CompletedCard>
@@ -206,7 +207,6 @@ const App=() =>{
       </Footer>
     </>
   );
-}
-
+};
 
 export default App;
