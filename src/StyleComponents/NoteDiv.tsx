@@ -1,8 +1,6 @@
 import styled from "styled-components";
-import React from "react";
 
-
-const CardDiv = styled.div`
+const cardDiv = styled.div`
   height: 237px;
   width: 250px;
   background-color: #ffffff;
@@ -16,13 +14,13 @@ const CardDiv = styled.div`
   }
 `;
 
-const Border = styled.div`
+const border = styled.div`
   border: 1px solid rgb(51, 51, 51);
   width: 80%;
   margin: auto;
 `;
 
-const NoteContainer = styled.div`
+const noteContainer = styled.div`
   text-align: justify right;
   margin: 1%;
   display: grid;
@@ -46,7 +44,7 @@ const NoteContainer = styled.div`
   }
 `;
 
-const ButtomBorder = styled.div`
+const buttomBorder = styled.div`
   border: 1px solid rgb(151, 149, 149);
   width: 80%;
   margin: auto;
@@ -60,7 +58,7 @@ const ButtomBorder = styled.div`
   }
 `;
 
-const CompletedCard = styled.div`
+const completedCard = styled.div`
   height: 237px;
   width: 250px;
   background-color: #c7b9b9;
@@ -68,7 +66,7 @@ const CompletedCard = styled.div`
   color: rgb(0, 0, 0);
 `;
 
-const CenterDiv = styled.div`
+const centerDiv = styled.div`
   margin: auto;
   width: 40%;
   border: 3px solid #73ad21;
@@ -78,10 +76,10 @@ const CenterDiv = styled.div`
   align-items: center;
 `;
 export {
-  CardDiv,
-  Border,
-  NoteContainer,
-  ButtomBorder,
-  CompletedCard,
-  CenterDiv,
+  cardDiv,
+  border,
+  noteContainer,
+  buttomBorder,
+  completedCard,
+  centerDiv,
 };
