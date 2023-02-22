@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const cardDiv = styled.div`
+const Carddiv = styled.div`
   height: 237px;
   width: 250px;
   background-color: #ffffff;
@@ -14,13 +14,13 @@ const cardDiv = styled.div`
   }
 `;
 
-const border = styled.div`
+const Border = styled.div`
   border: 1px solid rgb(51, 51, 51);
   width: 80%;
   margin: auto;
 `;
 
-const noteContainer = styled.div`
+const Notecontainer = styled.div`
   text-align: justify right;
   margin: 1%;
   display: grid;
@@ -44,7 +44,7 @@ const noteContainer = styled.div`
   }
 `;
 
-const buttomBorder = styled.div`
+const Buttomborder = styled.div`
   border: 1px solid rgb(151, 149, 149);
   width: 80%;
   margin: auto;
@@ -58,7 +58,7 @@ const buttomBorder = styled.div`
   }
 `;
 
-const completedCard = styled.div`
+const Completedcard = styled.div`
   height: 237px;
   width: 250px;
   background-color: #c7b9b9;
@@ -66,7 +66,7 @@ const completedCard = styled.div`
   color: rgb(0, 0, 0);
 `;
 
-const centerDiv = styled.div`
+const Centerdiv = styled.div`
   margin: auto;
   width: 40%;
   border: 3px solid #73ad21;
@@ -76,10 +76,10 @@ const centerDiv = styled.div`
   align-items: center;
 `;
 export {
-  cardDiv,
-  border,
-  noteContainer,
-  buttomBorder,
-  completedCard,
-  centerDiv,
+  Carddiv,
+  Border,
+  Notecontainer,
+  Buttomborder,
+  Completedcard,
+  Centerdiv,
 };

@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import React from "react";
 
-const button = styled.button`
+const Button = styled.button`
     display: inline-block;
     background-color: rgb(255, 252, 252);
     margin-left: 10%;
@@ -10,7 +9,7 @@ const button = styled.button`
     border: 1px solid black;
   `;
 
- const editButton = styled.button`
+ const Editbutton = styled.button`
     display: inline-block;
     background-color: rgb(255, 252, 252);
     margin-left: 2%;
@@ -19,4 +18,4 @@ const button = styled.button`
     border: 1px solid black;
   `;
   
-export {editButton,button}
+export {Editbutton,Button}

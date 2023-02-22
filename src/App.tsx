@@ -1,34 +1,34 @@
-import edit from "./Image/editimage.png";
-import monthName from "./Components/Monthname";
-import { editButton, button } from "./StyleComponents/Button";
-import clock from "react-live-clock";
-import footer from "./StyleComponents/Footer";
-import { allNoteType } from "./Interface/InterfaceType";
-import globalStyle from "./globalStyle";
+import Editimage from "./Image/Editimage.png";
+import Monthname from "./Components/Monthname";
+import { Editbutton, Button } from "./StyleComponents/Button";
+import Clock from "react-live-clock";
+import Footer from "./StyleComponents/Footer";
+import { Allnotetype } from "./Interface/InterfaceType";
+import Globalstyle from "./globalStyle";
 import {
-  border,
-  buttomBorder,
-  cardDiv,
-  centerDiv,
-  completedCard,
-  noteContainer,
+  Border,
+  Buttomborder,
+  Carddiv,
+  Centerdiv,
+  Completedcard,
+  Notecontainer,
 } from "./StyleComponents/NoteDiv";
 
 const App = () => {
   const date = new Date();
   const [note, setNote] = useState<string>("");
-  const [allNotes, setAllNotes] = useState<allNoteType[]>([
+  const [allNotes, setAllNotes] = useState<Allnotetype[]>([
     { id: 0, title: "", update: false },
   ]);
 
   const [checkUpdate, setCheckUpdate] = useState(false);
   const [updateIndex, setUpdateIndex] = useState(0);
 
-  const NoteList = allNotes.filter((value) => {
+  const uncompletedNoteList = allNotes.filter((value) => {
     return value.update === false;
   });
 
-  const completeList = allNotes.filter((value) => {
+  const completedNoteList = allNotes.filter((value) => {
     return value.update === true;
   });
 
@@ -73,23 +73,23 @@ const App = () => {
     setNote("");
   };
 
-  const checkComplete = (id: number) => {
+  const checkNoteCompleted = (id: number) => {
     const updatedTodoListArray = [...allNotes];
     updatedTodoListArray[id].update = true;
     setAllNotes(updatedTodoListArray);
     setNote("");
-    if (NoteList.length <= 1) {
+    if (uncompletedNoteList.length <= 1) {
       setNote("");
     }
   };
 
   return (
     <>
-      <globalStyle />
+      <Globalstyle />
       <div>
-        <centerDiv>
+        <Centerdiv>
           <div className="time">
-            <clock format={"HH:mm:ss"} ticking={true} timezone={"US/Pacific"} />
+            <Clock format={"HH:mm:ss"} ticking={true} timezone={"US/Pacific"} />
           </div>
           <h1 className="head-part"> Todo list </h1>
           <input
@@ -97,10 +97,10 @@ const App = () => {
             value={note}
             onChange={inputNoteData}
           />
-          <editButton onClick={() => dispalyNote(note)}>
-            <img className="ADD" src={edit} />
-          </editButton>
-        </centerDiv>
+          <Editbutton onClick={() => dispalyNote(note)}>
+            <img className="ADD" src={EditImage} />
+          </Editbutton>
+        </Centerdiv>
       </div>
 
       <div
@@ -113,8 +113,8 @@ const App = () => {
           style={{
             marginTop: "2%",
             width: "30%",
-            display: completeList.length <= 0 ? "none" : "block",
-            margin: completeList.length <= 0 ? "auto" : "2%",
+            display: completedNoteList.length <= 0 ? "none" : "block",
+            margin: completedNoteList.length <= 0 ? "auto" : "2%",
           }}
         >
           Note List
@@ -122,8 +122,8 @@ const App = () => {
         <h1
           className="update-list"
           style={{
-            display: completeList.length <= 0 ? "none" : "block",
-            width: completeList.length <= 0 ? "none" : "30%",
+            display: completedNoteList.length <= 0 ? "none" : "block",
+            width: completedNoteList.length <= 0 ? "none" : "30%",
             margin: "2%",
             marginLeft: "7%",
             left: "45%",
@@ -133,77 +133,83 @@ const App = () => {
           Completed list
         </h1>
       </div>
-      <div style={{ display: completeList.length > 0 ? "flex" : "normal" }}>
-        <noteContainer
-          style={{ width: completeList.length <= 0 ? "100%" : "50%" }}
+      <div
+        style={{ display: completedNoteList.length > 0 ? "flex" : "normal" }}
+      >
+        <Notecontainer
+          style={{ width: completedNoteList.length <= 0 ? "100%" : "50%" }}
         >
           {allNotes.map((value, index) => {
             if (value.update == false && value.title !== "") {
               return (
-                <cardDiv>
+                <Carddiv>
                   <p className="set-date">
                     {date.getDate()}/{monthName[date.getMonth()]}/
                     {date.getFullYear()}
                   </p>
-                  <border></border>
+                  <Border></Border>
 
                   <p className="addscroll">{value.title}</p>
 
-                  <buttomBorder></buttomBorder>
-                  <button onClick={() => deleteNote(value.id)}>
+                  <Buttomborder></Buttomborder>
+                  <Button onClick={() => deleteNote(value.id)}>
                     <span className="material-symbols-outlined">delete</span>
-                  </button>
+                  </Button>
 
-                  <editButton onClick={() => updateNote(index)}>
+                  <Editbutton onClick={() => updateNote(index)}>
                     <span className="material-symbols-outlined edit-change">
                       edit
                     </span>
-                  </editButton>
+                  </Editbutton>
 
                   <input
                     className="check"
                     type="checkbox"
-                    onChange={() => checkComplete(index)}
+                    onChange={() => checkNoteCompleted(index)}
                   />
-                </cardDiv>
+                </Carddiv>
               );
             }
           })}
-        </noteContainer>
+        </Notecontainer>
 
-        <noteContainer
-          style={{ width: completeList.length <= 0 ? "1%" : "50%" }}
+        <Notecontainer
+          style={{ width: completedNoteList.length <= 0 ? "1%" : "50%" }}
         >
-          {completeList.map((value, index) => {
+          {completedNoteList.map((value, index) => {
             return (
-              <completedCard>
+              <Completedcard>
                 <p className="set-date">
-                  {date.getDate()}/{monthName[date.getMonth()]}/
+                  {date.getDate()}/{Monthname[date.getMonth()]}/
                   {date.getFullYear()}
                 </p>
-                <border></border>
+                <Border></Border>
 
                 <p className="addscroll-modify">{value.title}</p>
 
                 <buttomBorder className="border-down"></buttomBorder>
-                <button
+                <Button
                   onClick={() => {
                     deleteNote(value.id);
                   }}
                 >
                   <span className="material-symbols-outlined">delete</span>
-                </button>
-              </completedCard>
+                </Button>
+              </Completedcard>
             );
           })}
-        </noteContainer>
+        </Notecontainer>
       </div>
 
-      <footer>
-        <div className="footer-div">complete Task:{completeList.length} </div>
-        <div className="footer-div">Pending Task: {NoteList.length - 1}</div>
+      <Footer>
+        <div className="footer-div">
+          complete Task:{completedNoteList.length}{" "}
+        </div>
+        <div className="footer-div">
+          Pending Task: {uncompletedNoteList.length - 1}
+        </div>
         <div className="footer-div">Total task : {allNotes.length - 1}</div>
-      </footer>
+      </Footer>
     </>
   );
 };
