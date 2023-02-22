@@ -1,10 +1,11 @@
-import EditImage from "./Image/Editimage.png";
+import { useState } from "react";
+import EditImage from "./Image/EditImage.png";
 import MonthName from "./Components/Monthname";
-import { EditButton, Button } from "./StyleComponents/Button";
+import { ButtonEdit, Button } from "./StyleComponents/Button";
 import Clock from "react-live-clock";
 import Footer from "./StyleComponents/Footer";
-import { AllNoteType } from "./Interface/InterfaceType";
-import Globalstyle from "./GlobalStyle";
+import { AllUpdateNote } from "./Interface/StateDateType";
+import GlobalStyle from "./GlobalStyle";
 import {
   Border,
   ButtomBorder,
@@ -17,14 +18,14 @@ import {
 const App = () => {
   const date = new Date();
   const [note, setNote] = useState<string>("");
-  const [allNotes, setAllNotes] = useState<AllNoteType[]>([
+  const [allNotes, setallNotes] = useState<AllUpdateNote[]>([
     { id: 0, title: "", update: false },
   ]);
 
   const [checkUpdate, setCheckUpdate] = useState(false);
   const [updateIndex, setUpdateIndex] = useState(0);
 
-  const uncompletedNoteList = allNotes.filter((value) => {
+  const unCompletedNoteList = allNotes.filter((value) => {
     return value.update === false;
   });
 
@@ -36,6 +37,9 @@ const App = () => {
     setNote(allNotes[updateNoteIndex].title);
     setCheckUpdate(true);
     setUpdateIndex(updateNoteIndex);
+    if (unCompletedNoteList.length <= 1) {
+      setNote("");
+    }
   };
 
   const inputNoteData = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,14 +49,14 @@ const App = () => {
   const dispalyNote = (note: string) => {
     if (note === "" || note.trim() === "") {
       alert("content Add");
-    } else if (checkUpdate == true) {
+    } else if (checkUpdate === true) {
       const updatedTodoListArray = [...allNotes];
       updatedTodoListArray[updateIndex].title = note;
-      setAllNotes(updatedTodoListArray);
+      setallNotes(updatedTodoListArray);
       setNote("");
       setCheckUpdate(false);
     } else {
-      setAllNotes([
+      setallNotes([
         ...allNotes,
         {
           id: allNotes.length,
@@ -65,7 +69,7 @@ const App = () => {
   };
 
   const deleteNote = (id: number) => {
-    setAllNotes((oldNote) => {
+    setallNotes((oldNote) => {
       return oldNote.filter((element, index) => {
         return element.id !== id;
       });
@@ -76,20 +80,20 @@ const App = () => {
   const checkNoteCompleted = (id: number) => {
     const updatedTodoListArray = [...allNotes];
     updatedTodoListArray[id].update = true;
-    setAllNotes(updatedTodoListArray);
+    setallNotes(updatedTodoListArray);
     setNote("");
-    if (uncompletedNoteList.length <= 1) {
+    if (unCompletedNoteList.length <= 1) {
       setNote("");
     }
   };
 
   return (
     <>
-      <Globalstyle />
+      <GlobalStyle />
       <div>
         <CenterDiv>
           <div className="time">
-            <Clock format={"HH:mm:ss"} ticking={true} timezone={"US/Pacific"} />
+            <Clock format={"HH:mm:ss"} ticking={true} />
           </div>
           <h1 className="head-part"> Todo list </h1>
           <input
@@ -97,50 +101,40 @@ const App = () => {
             value={note}
             onChange={inputNoteData}
           />
-          <EditButton onClick={() => dispalyNote(note)}>
-            <img className="ADD" src={EditImage} />
-          </EditButton>
+          <ButtonEdit onClick={() => dispalyNote(note)}>
+            <img className="ADD" src={EditImage} alt="Add" />
+          </ButtonEdit>
         </CenterDiv>
       </div>
 
-      <div
-        style={{
-          display: "flex",
-        }}
-      >
+      <div className="popup-box">
         <h1
-          className="update-list"
-          style={{
-            marginTop: "2%",
-            width: "30%",
-            display: completedNoteList.length <= 0 ? "none" : "block",
-            margin: completedNoteList.length <= 0 ? "auto" : "2%",
-          }}
+          className={
+            completedNoteList.length <= 0
+              ? "note-popup-conditional"
+              : "note-popup"
+          }
         >
           Note List
         </h1>
         <h1
-          className="update-list"
-          style={{
-            display: completedNoteList.length <= 0 ? "none" : "block",
-            width: completedNoteList.length <= 0 ? "none" : "30%",
-            margin: "2%",
-            marginLeft: "7%",
-            left: "45%",
-            position: "absolute",
-          }}
+          className={
+            completedNoteList.length <= 0
+              ? "complete-popup-conditional"
+              : "completenote-popup"
+          }
         >
           Completed list
         </h1>
       </div>
-      <div
-        style={{ display: completedNoteList.length > 0 ? "flex" : "normal" }}
-      >
+      <div className={completedNoteList.length > 0 ? "flex" : "normal"}>
         <NoteContainer
-          style={{ width: completedNoteList.length <= 0 ? "100%" : "50%" }}
+          className={
+            completedNoteList.length <= 0 ? "full-width" : "half-width"
+          }
         >
           {allNotes.map((value, index) => {
-            if (value.update == false && value.title !== "") {
+            if (value.update === false && value.title !== "") {
               return (
                 <CardDiv>
                   <p className="set-date">
@@ -156,11 +150,11 @@ const App = () => {
                     <span className="material-symbols-outlined">delete</span>
                   </Button>
 
-                  <EditButton onClick={() => updateNote(index)}>
+                  <ButtonEdit onClick={() => updateNote(index)}>
                     <span className="material-symbols-outlined edit-change">
                       edit
                     </span>
-                  </EditButton>
+                  </ButtonEdit>
 
                   <input
                     className="check"
@@ -180,7 +174,7 @@ const App = () => {
             return (
               <CompletedCard>
                 <p className="set-date">
-                  {date.getDate()}/{Monthname[date.getMonth()]}/
+                  {date.getDate()}/{MonthName[date.getMonth()]}/
                   {date.getFullYear()}
                 </p>
                 <Border></Border>
@@ -206,7 +200,7 @@ const App = () => {
           complete Task:{completedNoteList.length}{" "}
         </div>
         <div className="footer-div">
-          Pending Task: {uncompletedNoteList.length - 1}
+          Pending Task: {unCompletedNoteList.length - 1}
         </div>
         <div className="footer-div">Total task : {allNotes.length - 1}</div>
       </Footer>

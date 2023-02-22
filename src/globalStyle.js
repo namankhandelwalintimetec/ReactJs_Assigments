@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     background: teal;
     font-family: Open-Sans, Helvetica, Sans-Serif;
+	overflow:hidden;
   }
   .App {
 	text-align: center;
@@ -20,6 +21,7 @@ body {
 	width: 80%;
 	margin: auto;
 }
+
 
 .note-card {
 	text-align: justify right;
@@ -212,11 +214,67 @@ input::placeholder {
 	margin: auto;
 	margin-bottom: 2px;
 }
+.popup-box
+{
+	display: flex;
+	// margin:0
+	// // display: inline-block;
+}
 
+.note-popup{
+	align-items: center;
+	text-align: center;
+	color: #ffffff;
+	background-color: #2c807b;
+	border-radius: 20px;
+	font-size: 2vmax;
+	display:block;
+	marginTop: 2%;
+    width: 30%;,
+}
+.note-popup-conditional{
+	display:none;
+}
+
+.completenote-popup
+{
+	// margin: auto;
+	width: 50%;
+	align-items: center;
+	text-align: center;
+	color: #ffffff;
+	background-color: #2c807b;
+	border-radius: 20px;
+	font-size: 2vmax;
+	display:block;
+	marginTop: 2%;
+    width: 30%;	
+    marginLeft: 7%;
+    left: 45%;
+    position: absolute;
+}
+
+.complete-popup-conditional{
+	display:none;
+	width:none;
+}
 ::-webkit-scrollbar {
 	display: none;
 }
 
+.flex{
+	display :flex;
+}
+.normal{
+	display:normal;
+}
+.full-width{
+	width:100%;
+}
+
+.half-width{
+	width:50%;
+}
 .card-modify {
 	height: 250px;
 	width: 250px;
@@ -275,7 +333,6 @@ input::placeholder {
 
 	.update-list {
 		font-size: 18px;
-
 	}
 }
 `;
