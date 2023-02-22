@@ -1,23 +1,23 @@
-import Editimage from "./Image/Editimage.png";
-import Monthname from "./Components/Monthname";
-import { Editbutton, Button } from "./StyleComponents/Button";
+import EditImage from "./Image/Editimage.png";
+import MonthName from "./Components/Monthname";
+import { EditButton, Button } from "./StyleComponents/Button";
 import Clock from "react-live-clock";
 import Footer from "./StyleComponents/Footer";
-import { Allnotetype } from "./Interface/InterfaceType";
-import Globalstyle from "./globalStyle";
+import { AllNoteType } from "./Interface/InterfaceType";
+import Globalstyle from "./GlobalStyle";
 import {
   Border,
-  Buttomborder,
-  Carddiv,
-  Centerdiv,
-  Completedcard,
-  Notecontainer,
+  ButtomBorder,
+  CardDiv,
+  CenterDiv,
+  CompletedCard,
+  NoteContainer,
 } from "./StyleComponents/NoteDiv";
 
 const App = () => {
   const date = new Date();
   const [note, setNote] = useState<string>("");
-  const [allNotes, setAllNotes] = useState<Allnotetype[]>([
+  const [allNotes, setAllNotes] = useState<AllNoteType[]>([
     { id: 0, title: "", update: false },
   ]);
 
@@ -87,7 +87,7 @@ const App = () => {
     <>
       <Globalstyle />
       <div>
-        <Centerdiv>
+        <CenterDiv>
           <div className="time">
             <Clock format={"HH:mm:ss"} ticking={true} timezone={"US/Pacific"} />
           </div>
@@ -97,10 +97,10 @@ const App = () => {
             value={note}
             onChange={inputNoteData}
           />
-          <Editbutton onClick={() => dispalyNote(note)}>
+          <EditButton onClick={() => dispalyNote(note)}>
             <img className="ADD" src={EditImage} />
-          </Editbutton>
-        </Centerdiv>
+          </EditButton>
+        </CenterDiv>
       </div>
 
       <div
@@ -136,49 +136,49 @@ const App = () => {
       <div
         style={{ display: completedNoteList.length > 0 ? "flex" : "normal" }}
       >
-        <Notecontainer
+        <NoteContainer
           style={{ width: completedNoteList.length <= 0 ? "100%" : "50%" }}
         >
           {allNotes.map((value, index) => {
             if (value.update == false && value.title !== "") {
               return (
-                <Carddiv>
+                <CardDiv>
                   <p className="set-date">
-                    {date.getDate()}/{monthName[date.getMonth()]}/
+                    {date.getDate()}/{MonthName[date.getMonth()]}/
                     {date.getFullYear()}
                   </p>
                   <Border></Border>
 
                   <p className="addscroll">{value.title}</p>
 
-                  <Buttomborder></Buttomborder>
+                  <ButtomBorder></ButtomBorder>
                   <Button onClick={() => deleteNote(value.id)}>
                     <span className="material-symbols-outlined">delete</span>
                   </Button>
 
-                  <Editbutton onClick={() => updateNote(index)}>
+                  <EditButton onClick={() => updateNote(index)}>
                     <span className="material-symbols-outlined edit-change">
                       edit
                     </span>
-                  </Editbutton>
+                  </EditButton>
 
                   <input
                     className="check"
                     type="checkbox"
                     onChange={() => checkNoteCompleted(index)}
                   />
-                </Carddiv>
+                </CardDiv>
               );
             }
           })}
-        </Notecontainer>
+        </NoteContainer>
 
-        <Notecontainer
+        <NoteContainer
           style={{ width: completedNoteList.length <= 0 ? "1%" : "50%" }}
         >
           {completedNoteList.map((value, index) => {
             return (
-              <Completedcard>
+              <CompletedCard>
                 <p className="set-date">
                   {date.getDate()}/{Monthname[date.getMonth()]}/
                   {date.getFullYear()}
@@ -187,7 +187,7 @@ const App = () => {
 
                 <p className="addscroll-modify">{value.title}</p>
 
-                <buttomBorder className="border-down"></buttomBorder>
+                <ButtomBorder className="border-down"></ButtomBorder>
                 <Button
                   onClick={() => {
                     deleteNote(value.id);
@@ -195,10 +195,10 @@ const App = () => {
                 >
                   <span className="material-symbols-outlined">delete</span>
                 </Button>
-              </Completedcard>
+              </CompletedCard>
             );
           })}
-        </Notecontainer>
+        </NoteContainer>
       </div>
 
       <Footer>

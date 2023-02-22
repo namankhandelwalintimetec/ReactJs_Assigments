@@ -1,4 +1,4 @@
-let monthName = [
+let MonthName = [
   "Jan",
   "Feb",
   "March",
@@ -13,4 +13,4 @@ let monthName = [
   "Dec",
 ];
 
-export default monthName;
+export default MonthName;

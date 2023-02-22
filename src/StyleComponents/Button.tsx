@@ -9,7 +9,7 @@ const Button = styled.button`
     border: 1px solid black;
   `;
 
- const Editbutton = styled.button`
+ const EditButton = styled.button`
     display: inline-block;
     background-color: rgb(255, 252, 252);
     margin-left: 2%;
@@ -18,4 +18,4 @@ const Button = styled.button`
     border: 1px solid black;
   `;
   
-export {Editbutton,Button}
+export {EditButton,Button}
