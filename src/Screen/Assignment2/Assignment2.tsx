@@ -5,7 +5,7 @@ import Footer from "../../Components/Footer";
 import { Button, Div } from "./StyleComponents/Assignment3StyleComponent";
 import { ActiveState, OfflineState } from "./Constant/ConstantValue";
 
-const StatusChecker = () => {
+const Assignment2 = () => {
   const [state, setState] = useState<string>("offline");
   const [loadingTime, setLoadingTime] = useState<boolean>(false);
   const status = useCheckStatus(state);
@@ -50,8 +50,8 @@ const StatusChecker = () => {
           <span className="material-symbols-outlined">change_circle</span>
         </Button>
       </Div>
-      <Footer content="State checker" />  
+      <Footer content="State checker" />
     </>
   );
 };
-export default StatusChecker;
+export default Assignment2;
