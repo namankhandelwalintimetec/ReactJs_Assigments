@@ -1,4 +1,4 @@
-import { FooterProps } from "../Interface/Interfaces";
+import { FooterProps } from "./Interface/Interfaces";
 import { FooterPart } from "./StyleComponents/Footer";
 
 const Footer = ({ content }: FooterProps) => {
