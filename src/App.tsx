@@ -1,11 +1,11 @@
-import AssigmentSelectionNavbar from "./Components/AssigmentSelectionNavbar";
+import SelectionNavbar from "./Components/SelectionNavbar";
 import GlobalStyle from "./GlobalStyle";
 
-function App() {
+const App=()=> {
   return (
     <>
       <GlobalStyle />
-      <AssigmentSelectionNavbar />
+      <SelectionNavbar />
     </>
   );
 }

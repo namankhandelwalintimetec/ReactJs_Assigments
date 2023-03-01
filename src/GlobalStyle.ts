@@ -15,20 +15,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-.center {
-  margin: auto;
-  align-items: center;
-  text-align: center;
-  margin-top: 10%;
-  font-weight: bold;
-  transition: scale 2s;
-  border: 1px solid black;
-  width: 250px;
-  padding: 2%;
-  background-color: #eebdcf;
-  border-radius: 10px;
-  height: 20vh;
-}
 
 .submit-image{
   width:31px;

@@ -4,7 +4,7 @@ import {
   CounterButton,
   Div,
   CounterButtonDiv,
-} from "./CounterStyledComponents/Assignment1StyleComponent";
+} from "./StyleComponent";
 
 const Assignment1 = () => {
   const [count, setCount] = useState(0);

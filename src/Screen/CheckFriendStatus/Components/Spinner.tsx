@@ -1,6 +1,6 @@
 import ClipLoader from "react-spinners/ClipLoader";
-import { Override } from "../Constant/ConstantValue";
-import { SpinnerProps } from "../Constant/ConstantValue";
+import { Override } from "../Interface/Interface";
+import { SpinnerProps } from "../Interface/Interface";
 
 const Spinner = ({ time }: SpinnerProps) => {
   return (

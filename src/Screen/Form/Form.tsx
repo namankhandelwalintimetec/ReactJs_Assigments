@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import SubmitButtonImage from "../../Image/SubmitButtonImage.png";
 import Footer from "../../Components/Footer";
-import { Input } from "./StyledComponents/Assignment3StyleComponent";
+import { Input } from "./StyleComponent";
 
 const Assigment3 = () => {
   const [name, setName] = useState("");

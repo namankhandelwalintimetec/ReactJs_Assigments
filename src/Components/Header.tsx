@@ -1,5 +1,5 @@
 import { HeaderProps } from "../Interface/Interfaces";
-import { HeaderDiv, SubHeaderDiv } from "../StyleComponents/HeaderStyle";
+import { HeaderDiv, SubHeaderDiv } from "./StyleComponents/HeaderStyle";
 
 const Header = ({ screenChanger }: HeaderProps) => {
   return (

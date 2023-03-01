@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Assigment1 from "../Screen/Assignment1/Assignment1";
-import Assigment2 from "../Screen/Assignment2/Assignment2";
-import Assigment3 from "../Screen/Assignment3/Assignment3";
+import Assigment1 from "../Screen/Counter/Counter";
+import Assigment2 from "../Screen/CheckFriendStatus/CheckStatus";
+import Assigment3 from "../Screen/Form/Form";
 import Header from "./Header";
 
 const AssigmentSelectionNavbar = () => {
@@ -21,11 +21,9 @@ const AssigmentSelectionNavbar = () => {
     <>
       <Header screenChanger={screenChanger} />
       <div>
-        {(() => {
-          if (screenNumber === 1) return <Assigment1 />;
-          else if (screenNumber === 2) return <Assigment2 />;
-          else return <Assigment3 />;
-        })()}
+        {(screenNumber === 1) && (<Assigment1 />)}
+        {(screenNumber === 2) && (<Assigment2 />)}
+        {(screenNumber === 3) && (<Assigment3 />)}
       </div>
     </>
   );

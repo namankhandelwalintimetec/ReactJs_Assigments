@@ -2,20 +2,19 @@ import { useState } from "react";
 import useCheckStatus from "./Hooks/useCheckStatus";
 import Spinner from "./Components/Spinner";
 import Footer from "../../Components/Footer";
-import { Button, Div } from "./StyleComponents/Assignment3StyleComponent";
-import { ActiveState, OfflineState } from "./Constant/ConstantValue";
+import { Button, Div } from "./StyleComponent";
 
 const Assignment2 = () => {
-  const [state, setState] = useState<string>("offline");
+  const [friendState, setFriendState] = useState<string>("offline");
   const [loadingTime, setLoadingTime] = useState<boolean>(false);
-  const status = useCheckStatus(state);
+  const status: Boolean = useCheckStatus(friendState);
 
   const statusChanger = () => {
-    if (state === "offline") {
-      setState("online");
+    if (friendState === "offline") {
+      setFriendState("online");
       setLoadingTime(true);
     } else {
-      setState("offline");
+      setFriendState("offline");
       setLoadingTime(true);
     }
   };
@@ -33,14 +32,14 @@ const Assignment2 = () => {
               return (
                 <>
                   <div>Friend is online</div>
-                  <li className={ActiveState}>Status</li>
+                  <li className="online-color">Status</li>
                 </>
               );
             else
               return (
                 <>
                   <div>Friend is offline</div>
-                  <li className={OfflineState}>Status</li>
+                  <li className="offline-color">Status</li>
                 </>
               );
           }

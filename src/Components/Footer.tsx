@@ -1,5 +1,5 @@
 import { FooterProps } from "../Interface/Interfaces";
-import { FooterPart } from "../StyleComponents/Footer";
+import { FooterPart } from "./StyleComponents/Footer";
 
 const Footer = ({ content }: FooterProps) => {
   return (
@@ -9,6 +9,6 @@ const Footer = ({ content }: FooterProps) => {
       </FooterPart>
     </>
   );
-}; 
+};
 
 export default Footer;
