@@ -1,19 +1,19 @@
 import { useState } from "react";
-import Assigment1 from "../Screen/Counter/Counter";
-import Assigment2 from "../Screen/CheckFriendStatus/CheckStatus";
-import Assigment3 from "../Screen/Form/Form";
 import Header from "./Header";
+import Counter from "../Screen/Counter/Counter";
+import CustomHook from "../Screen/CheckFriendStatus/CheckStatus";
+import Form from "../Screen/Form/Form";
 
-const AssigmentSelectionNavbar = () => {
-  const [screenNumber, setScreenNumber] = useState<number>(1);
+const SelectionNavbar = () => {
+  const [screenNumber, setScreenNumber] = useState<string>("");
 
-  const screenChanger = (value: number) => {
-    if (value === 1) {
-      setScreenNumber(1);
-    } else if (value === 2) {
-      setScreenNumber(2);
+  const screenChanger = (value: string) => {
+    if (value === "counter") {
+      setScreenNumber("counter");
+    } else if (value === "customHook") {
+      setScreenNumber("customHook");
     } else {
-      setScreenNumber(3);
+      setScreenNumber("form");
     }
   };
 
@@ -21,12 +21,12 @@ const AssigmentSelectionNavbar = () => {
     <>
       <Header screenChanger={screenChanger} />
       <div>
-        {(screenNumber === 1) && (<Assigment1 />)}
-        {(screenNumber === 2) && (<Assigment2 />)}
-        {(screenNumber === 3) && (<Assigment3 />)}
+        {screenNumber === "counter" && <Counter />}
+        {screenNumber === "customHook" && <CustomHook />}
+        {screenNumber === "form" && <Form />}
       </div>
     </>
   );
 };
 
-export default AssigmentSelectionNavbar;
+export default SelectionNavbar;

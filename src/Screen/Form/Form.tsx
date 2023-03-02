@@ -1,9 +1,12 @@
 import { useState, useEffect, useRef } from "react";
-import SubmitButtonImage from "../../Image/SubmitButtonImage.png";
+import SubmitButtonImage from "../../Image/SubmitButton.png";
 import Footer from "../../Components/Footer";
-import { Input } from "./StyleComponent";
+import styled from "styled-components";
 
-const Assigment3 = () => {
+const Input = styled.input`
+  margin: 3%;
+`;
+const Form = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const nameReferance = useRef<HTMLInputElement>(null);
@@ -53,4 +56,4 @@ const Assigment3 = () => {
   );
 };
 
-export default Assigment3;
+export default Form;

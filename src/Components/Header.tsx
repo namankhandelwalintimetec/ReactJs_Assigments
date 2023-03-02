@@ -7,21 +7,21 @@ const Header = ({ screenChanger }: HeaderProps) => {
       <HeaderDiv>
         <SubHeaderDiv
           onClick={() => {
-            screenChanger(1);
+            screenChanger("counter");
           }}
         >
           Assigment 1
         </SubHeaderDiv>
         <SubHeaderDiv
           onClick={() => {
-            screenChanger(2);
+            screenChanger("customHook");
           }}
         >
           Assigment 2
         </SubHeaderDiv>
         <SubHeaderDiv
           onClick={() => {
-            screenChanger(3);
+            screenChanger("form");
           }}
         >
           Assigment 3

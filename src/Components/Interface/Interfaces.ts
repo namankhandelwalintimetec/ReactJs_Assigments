@@ -3,5 +3,5 @@ export interface FooterProps {
 }
 
 export interface HeaderProps {
-  screenChanger: (value: number) => void;
+  screenChanger: (value: string) => void;
 }

@@ -4,7 +4,7 @@ import Spinner from "./Components/Spinner";
 import Footer from "../../Components/Footer";
 import { Button, Div } from "./StyleComponent";
 
-const Assignment2 = () => {
+const CustomHook = () => {
   const [friendState, setFriendState] = useState<string>("offline");
   const [loadingTime, setLoadingTime] = useState<boolean>(false);
   const status: Boolean = useCheckStatus(friendState);
@@ -53,4 +53,4 @@ const Assignment2 = () => {
     </>
   );
 };
-export default Assignment2;
+export default CustomHook;

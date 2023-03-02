@@ -6,7 +6,7 @@ import {
   CounterButtonDiv,
 } from "./StyleComponent";
 
-const Assignment1 = () => {
+const Counter = () => {
   const [count, setCount] = useState(0);
 
   const increaseCount = () => {
@@ -45,4 +45,4 @@ const Assignment1 = () => {
   );
 };
 
-export default Assignment1;
+export default Counter;
