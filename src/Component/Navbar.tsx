@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ImCross } from "react-icons/im";
 import { NavStyle } from "./NavbarStyle";
+import { LinkAddresh } from "./Constant";
 
 const Navbar = () => {
   const [mobileNavbar, setMobileNavbar] = useState(false);
@@ -15,21 +16,11 @@ const Navbar = () => {
           className={mobileNavbar ? "nav-links-mobile" : "nav-links"}
           onClick={() => setMobileNavbar(false)}
         >
-          <Link to="/">
-            <li>Home</li>
-          </Link>
-          <Link to="/about">
-            <li>About</li>
-          </Link>
-          <Link to="/services">
-            <li>Services</li>
-          </Link>
-          <Link to="/skills">
-            <li>Skills</li>
-          </Link>
-          <Link to="/contact">
-            <li>contact</li>
-          </Link>
+          {LinkAddresh.map((item) => (
+            <Link to={item.to}>
+              <li>{item.item}</li>
+            </Link>
+          ))}
         </ul>
         <button
           className="mobile-menu-icon"
