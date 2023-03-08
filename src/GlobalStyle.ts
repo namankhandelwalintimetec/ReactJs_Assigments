@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -10,14 +10,13 @@ export const GlobalStyle = createGlobalStyle`
   text-align: center;
   font-size: 80px;
 }
+a {
+    text-decoration: none;
+  }
 
 @media (max-width: 768px) {
 	  .header h1 {
     font-size: 50px;
   }
 }
-
-a {
-    text-decoration: none;
-  }
 `;
