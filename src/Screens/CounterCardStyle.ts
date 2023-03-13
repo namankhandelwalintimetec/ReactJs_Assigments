@@ -5,7 +5,7 @@ export const Card = styled.div`
   height: 350px;
   width: 40%;
   margin-top: 10%;
-  background-color: rgb(124,138,78);
+  background-color: rgb(124, 138, 78);
   border-radius: 4vw;
 
   :hover {
@@ -30,9 +30,9 @@ export const Card = styled.div`
     margin-top: 5%;
     text-align: center;
     width: 20%;
-	height: 2vw;
+    height: 2vw;
     font-size: 1.5vw;
-	border-radius:100px;
+    border-radius: 100px;
   }
 
   button {
@@ -41,7 +41,7 @@ export const Card = styled.div`
     margin: 2%;
     margin-left: 15%;
     font-weight: 900;
-	font-size: 1vw;
+    font-size: 1vw;
     border-radius: 6vw;
   }
 
