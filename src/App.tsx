@@ -1,25 +1,12 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./Component/Navbar";
-import About from "./Screens/About/About";
-import Skills from "./Screens/Skills/Skill";
-import Contact from "./Screens/Contact/Contact";
-import Services from "./Screens/Service/Service";
-import Home from "./Screens/Home/Home";
-import { GlobalStyle } from "./GlobalStyle";
+import { Provider } from "react-redux";
+import CounterCard from "./Screens/CounterCard";
+import store from "./Store";
 
 function App() {
   return (
-    <BrowserRouter>
-      <GlobalStyle />
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/skills" element={<Skills />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/services" element={<Services />} />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <CounterCard />
+    </Provider>
   );
 }
 

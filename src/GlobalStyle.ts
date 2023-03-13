@@ -1,22 +1,18 @@
 import { createGlobalStyle } from "styled-components";
-
 export const GlobalStyle = createGlobalStyle`
 
-.header {
-  text-align: center;
-  margin-top: 15%;
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color:rgb(188,192,193);
 }
-.header h1 {
-  text-align: center;
-  font-size: 80px;
-}
-a {
-    text-decoration: none;
-  }
 
-@media (max-width: 768px) {
-	  .header h1 {
-    font-size: 50px;
-  }
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 `;
