@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Decrease, Increase, Reset } from "../Actions/Index";
-import CounterButton from "../Atoms/CounterButton";
-import InputField from "../Atoms/InputFiled";
+import CounterButton from "../Components/Atoms/CounterButton";
+import InputField from "../Components/Atoms/InputFiled";
 import { Card } from "./CounterCardStyle";
 
 interface StateType {
   changeState: number;
 }
 
-const CounterCard = () => {
+const Index = () => {
   const [increament, setIncreament] = useState<string>("1");
   const [decreament, setDecreament] = useState<string>("1");
   const countState = useSelector((state: StateType) => state.changeState);
@@ -78,4 +78,4 @@ const CounterCard = () => {
   );
 };
 
-export default CounterCard;
+export default Index;

@@ -2,10 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import store from "./Store";
 import { GlobalStyle } from "./GlobalStyle";
-
-store.subscribe(() => console.log(store.getState()));
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

@@ -5,11 +5,9 @@ interface PropsType {
 
 const CounterButton = ({ name, buttonAction }: PropsType) => {
   return (
-    <>
-      <button aria-label="button-name" onClick={buttonAction}>
-        {name}
-      </button>
-    </>
+    <button aria-label="button-name" onClick={buttonAction}>
+      {name}
+    </button>
   );
 };
 

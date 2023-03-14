@@ -1,11 +1,11 @@
 import { Provider } from "react-redux";
-import CounterCard from "./Screens/CounterCard";
+import Index from "./Screens/Index";
 import store from "./Store";
 
 const App = () => {
   return (
     <Provider store={store}>
-      <CounterCard />
+      <Index />
     </Provider>
   );
 };
